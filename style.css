@@ -1,13 +1,64 @@
+/* ---------- GLOBAL ---------- */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #111;
+  color: #0f172a;
   line-height: 1.6;
-  background: #ffffff;
+  background: #233556; /* medium blue background across all pages */
 }
 
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 20px 70px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(20, 30, 55, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-cta {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.14);
+}
+
+/* ---------- HERO ---------- */
 .hero {
-  background: #1f2a44; /* dark blue */
+  background: #1f2a44;
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -23,45 +74,12 @@ body {
   margin-bottom: 10px;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-section {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-section h2 {
-  margin-bottom: 15px;
-  color: #1f2a44;
-}
-
-footer {
-  background: #f5f5f5;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-}
-/* ---------- HERO TEXT STYLES ---------- */
 .tagline {
   font-size: 1.2rem;
   margin-top: 10px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subtagline {
@@ -69,6 +87,36 @@ footer {
   opacity: 0.85;
   margin-top: 6px;
   font-style: italic;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* ---------- CARDS / SECTIONS ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 26px;
+  margin: 22px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.card h1, .card h2 {
+  margin-top: 0;
+  color: #1f2a44;
+}
+
+.join {
+  text-align: center;
 }
 
 /* ---------- ANIMATIONS ---------- */
@@ -90,43 +138,30 @@ footer {
     transform: translateY(0);
   }
 }
-/* ---------- CONTACT PAGE ---------- */
-.contact-page {
-  background: #eaf2ff; /* light blue */
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
+/* ---------- CONTACT FORM ---------- */
 .contact-container {
-  background: white;
-  padding: 40px;
-  max-width: 500px;
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 .contact-container h1 {
   margin-bottom: 10px;
-  color: #1f2a44;
 }
 
 .contact-container p {
-  margin-bottom: 30px;
-  color: #555;
+  margin-bottom: 22px;
+  color: #475569;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
   font-size: 0.95rem;
+  box-sizing: border-box;
 }
 
 .contact-form button {
@@ -135,7 +170,7 @@ footer {
   background: #1f2a44;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -145,3 +180,55 @@ footer {
   background: #162035;
 }
 
+/* ---------- TEAM PAGE ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin: 18px 0 28px;
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: inline-block;
+  margin-bottom: 12px;
+  border: 3px solid #e2e8f0;
+}
+
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf2ff;
+  color: #1f2a44;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.role {
+  margin: 6px 0 0;
+  color: #475569;
+  font-weight: 600;
+}
+
+.recruiting .role {
+  color: #1f2a44;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 24px 10px 40px;
+  color: rgba(255,255,255,0.75);
+}
