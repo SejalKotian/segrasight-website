@@ -6,23 +6,40 @@
   <title>Contact Us – SegraSight</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="contact-page">
+<body>
 
-  <div class="contact-container">
-    <h1>Get in Touch</h1>
-    <p>Request a demo or reach out to learn more about SegraSight.</p>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">SegraSight</a>
+      <div class="nav-links">
+        <a href="index.html#services">Services</a>
+        <a href="team.html">Meet the Team</a>
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </nav>
 
-    <form class="contact-form" action="https://formspree.io/f/mdaakeya" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="text" name="company" placeholder="Company / Organization" />
-      <input type="tel" name="phone" placeholder="Phone Number" />
-      <textarea name="message" placeholder="Message" rows="5"></textarea>
+  <main class="page">
+    <div class="contact-container card">
+      <h1>Get in Touch</h1>
+      <p>Request a demo or reach out to learn more about SegraSight.</p>
 
+      <!-- NOTE: Right now this doesn't submit anywhere until you add Formspree or backend -->
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="company" placeholder="Company / Organization" />
+        <input type="tel" name="phone" placeholder="Phone Number" />
+        <textarea name="message" placeholder="Message" rows="5"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+  <footer class="footer">
+    <p>© 2026 SegraSight</p>
+  </footer>
 
 </body>
 </html>
