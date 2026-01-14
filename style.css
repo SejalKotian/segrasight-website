@@ -1,26 +1,31 @@
-/* ---------- GLOBAL ---------- */
+/* ---------- RESET / GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #0f172a;
   line-height: 1.6;
-  background: #233556; /* medium blue background across all pages */
+  background: #233556; /* medium blue across pages */
 }
 
+/* Page container */
 .page {
   max-width: 980px;
   margin: 0 auto;
-  padding: 30px 20px 70px;
+  padding: 34px 20px 80px;
 }
 
 /* ---------- NAV ---------- */
 .nav {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(20, 30, 55, 0.92);
+  z-index: 100;
+  background: rgba(16, 24, 44, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .nav-inner {
@@ -30,88 +35,113 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 14px;
 }
 
 .nav-brand {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 0.2px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  font-size: 1.05rem;
 }
 
+/* Link row */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* mobile friendly */
+}
+
+/* Regular nav links */
 .nav-links a {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  margin-left: 18px;
+  padding: 8px 12px;
+  border-radius: 10px;
   font-size: 0.95rem;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .nav-links a:hover {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.10);
 }
 
-.nav-cta {
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.14);
+/* CTA button-style link */
+.nav-links .nav-cta {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 700;
+}
+
+.nav-links .nav-cta:hover {
+  background: rgba(255, 255, 255, 0.24);
 }
 
 /* ---------- HERO ---------- */
 .hero {
-  background: #1f2a44;
+  background: #1f2a44; /* dark navy */
   color: white;
-  padding: 80px 20px;
+  padding: 90px 20px 80px;
   text-align: center;
 }
 
 .logo {
   width: 120px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .tagline {
   font-size: 1.2rem;
-  margin-top: 10px;
+  margin: 10px auto 0;
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .subtagline {
-  font-size: 1rem;
+  font-size: 1.02rem;
   opacity: 0.85;
-  margin-top: 6px;
+  margin: 8px auto 0;
   font-style: italic;
 }
 
-/* ---------- BUTTON ---------- */
+/* ---------- BUTTONS ---------- */
 .btn {
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 26px;
   padding: 12px 28px;
-  background: black;
+  background: #0b1220;
   color: white;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: 12px;
+  font-weight: 800;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  background: #000;
+  transform: translateY(-1px);
 }
 
 /* ---------- CARDS / SECTIONS ---------- */
 .card {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 28px 26px;
   margin: 22px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
 }
 
-.card h1, .card h2 {
+.card h1,
+.card h2 {
   margin-top: 0;
+  margin-bottom: 12px;
   color: #1f2a44;
 }
 
@@ -122,7 +152,7 @@ body {
 /* ---------- ANIMATIONS ---------- */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   animation: fadeUp 0.8s ease forwards;
 }
 
@@ -133,51 +163,67 @@ body {
 .delay-5 { animation-delay: 1s; }
 
 @keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- CONTACT FORM ---------- */
+/* ---------- CONTACT PAGE FIX ---------- */
+/* This makes the contact form look centered and clean */
 .contact-container {
+  max-width: 620px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .contact-container h1 {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .contact-container p {
+  margin-top: 0;
   margin-bottom: 22px;
   color: #475569;
+}
+
+/* Form layout */
+.contact-form {
+  text-align: left;
+  margin-top: 18px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 12px 12px;
   margin-bottom: 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #cbd5e1;
   font-size: 0.95rem;
-  box-sizing: border-box;
+  outline: none;
 }
 
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1f2a44;
+  box-shadow: 0 0 0 3px rgba(31, 42, 68, 0.12);
+}
+
+/* Submit button */
 .contact-form button {
   width: 100%;
   padding: 12px;
   background: #1f2a44;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 800;
   cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
 .contact-form button:hover {
   background: #162035;
+  transform: translateY(-1px);
 }
 
 /* ---------- TEAM PAGE ---------- */
@@ -190,36 +236,36 @@ body {
 
 .team-card {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 18px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
 }
 
 .avatar {
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
   border-radius: 999px;
   object-fit: cover;
   display: inline-block;
   margin-bottom: 12px;
   border: 3px solid #e2e8f0;
+  background: #f1f5f9;
 }
 
 .placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #eaf2ff;
   color: #1f2a44;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .role {
   margin: 6px 0 0;
   color: #475569;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .recruiting .role {
@@ -229,6 +275,6 @@ body {
 /* ---------- FOOTER ---------- */
 .footer {
   text-align: center;
-  padding: 24px 10px 40px;
-  color: rgba(255,255,255,0.75);
+  padding: 26px 10px 44px;
+  color: rgba(255, 255, 255, 0.78);
 }
