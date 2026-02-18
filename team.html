@@ -3,76 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet the Team – SegraSight</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Meet the Team — SegraSight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #080d14;
+      --bg2:      #0d1520;
+      --bg3:      #111c2c;
+      --border:   rgba(0,210,200,0.15);
+      --cyan:     #00d2c8;
+      --cyan-dim: rgba(0,210,200,0.08);
+      --cyan-mid: rgba(0,210,200,0.25);
+      --text:     #c8dde8;
+      --muted:    #8aafc4;
+      --white:    #f0f8ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,210,200,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,210,200,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ─────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(8,13,20,0.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2rem;
+    }
+    .nav-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 1.35rem;
+      color: var(--cyan); text-decoration: none;
+      letter-spacing: 0.03em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-brand img { height: 28px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.875rem;
+      font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      color: var(--cyan) !important;
+      border: 1px solid var(--cyan-mid) !important;
+      padding: 0.4rem 1.1rem; border-radius: 3px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--cyan-dim) !important; }
+
+    /* ── MAIN ─────────────────────────────────── */
+    main {
+      flex: 1;
+      position: relative; z-index: 1;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    .section-wrap {
+      max-width: 1200px; margin: auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; color: var(--cyan);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block; width: 2rem; height: 1px;
+      background: var(--cyan);
+    }
+
+    .page-header { margin-bottom: 5rem; }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif; font-weight: 800;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--white); line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .page-header p {
+      color: var(--text); font-size: 1rem; max-width: 480px;
+    }
+
+    /* ── TEAM GRID ────────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .team-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 2rem 1.75rem;
+      transition: border-color 0.3s;
+    }
+    .team-card:hover { border-color: var(--cyan-mid); }
+
+    .avatar {
+      width: 72px; height: 72px;
+      border-radius: 3px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .avatar-placeholder {
+      width: 72px; height: 72px;
+      border-radius: 3px;
+      border: 1px dashed var(--cyan-mid);
+      background: var(--cyan-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem; color: var(--cyan);
+      font-weight: 300;
+    }
+
+    .team-card h3 {
+      font-family: 'Outfit', sans-serif; font-weight: 700;
+      font-size: 1rem; color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .team-card .role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    .team-card.recruiting .role {
+      color: var(--cyan);
+    }
+
+    /* ── JOIN ─────────────────────────────────── */
+    .join-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .join-section h2 {
+      font-family: 'Outfit', sans-serif; font-weight: 800;
+      font-size: 1.5rem; color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .join-section p { color: var(--muted); font-size: 0.95rem; }
+
+    .btn-primary {
+      background: var(--cyan); color: var(--bg);
+      font-family: 'Outfit', sans-serif; font-weight: 700;
+      font-size: 0.9rem; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem; border-radius: 3px;
+      text-decoration: none; transition: opacity 0.2s;
+      display: inline-block; flex-shrink: 0;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* ── FOOTER ───────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif; font-weight: 800;
+      font-size: 1rem; color: var(--cyan);
+    }
+    .footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; color: var(--muted);
+    }
+
+    /* ── REVEAL ───────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .join-section { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="index.html">SegraSight</a>
+      <a class="nav-brand" href="index.html">
+        <img src="assets/logo.png" alt="SegraSight Logo" />SegraSight
+      </a>
       <div class="nav-links">
-        <a href="index.html#services">Services</a>
-        <a href="team.html">Meet the Team</a>
+        <a href="index.html#services">Solution</a>
+        <a href="team.html">Team</a>
         <a class="nav-cta" href="contact.html">Contact Us</a>
       </div>
     </div>
   </nav>
 
-  <main class="page">
-    <section class="card">
-      <h1>Meet the Team</h1>
-      <p>
-        We’re building SegraSight at the intersection of healthcare operations, safety, and applied AI.
-      </p>
-    </section>
+  <main>
+    <div class="section-wrap">
 
-    <section class="team-grid">
-      <!-- Sejal -->
-      <div class="team-card">
-        <img src="assets/sejal.jpeg" alt="Sejal Kotian" class="avatar" />
-        <h3>Sejal Kotian</h3>
-        <p class="role">Founder & CEO</p>
+      <div class="page-header reveal">
+        <div class="section-label">The Team</div>
+        <h1>Meet the Team</h1>
+        <p>We're building SegraSight at the intersection of healthcare operations, safety, and applied AI.</p>
       </div>
 
-      <!-- Cofounder -->
-      <div class="team-card">
-        <img src="assets/amogh.png" alt="Amogh Mohanty" class="avatar" />
-        <h3>Amogh Mohanty</h3>
-        <p class="role">Co-founder</p>
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <img src="assets/sejal.jpeg" alt="Sejal Kotian" class="avatar" />
+          <h3>Sejal Kotian</h3>
+          <p class="role">Founder & CEO</p>
+        </div>
+        <div class="team-card">
+          <img src="assets/amogh.png" alt="Amogh Mohanty" class="avatar" />
+          <h3>Amogh Mohanty</h3>
+          <p class="role">Co-founder</p>
+        </div>
+        <div class="team-card recruiting">
+          <div class="avatar-placeholder">+</div>
+          <h3>Clinical Advisor</h3>
+          <p class="role">Actively recruiting</p>
+        </div>
+        <div class="team-card recruiting">
+          <div class="avatar-placeholder">+</div>
+          <h3>Technical Lead</h3>
+          <p class="role">Actively recruiting</p>
+        </div>
+        <div class="team-card recruiting">
+          <div class="avatar-placeholder">+</div>
+          <h3>Business Lead</h3>
+          <p class="role">Actively recruiting</p>
+        </div>
       </div>
 
-      <!-- Recruiting roles -->
-      <div class="team-card recruiting">
-        <div class="avatar placeholder">+</div>
-        <h3>Clinical Advisor</h3>
-        <p class="role">Actively recruiting</p>
+      <div class="join-section reveal">
+        <div>
+          <h2>Want to join us?</h2>
+          <p>Please reach out — we'd love to talk.</p>
+        </div>
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
       </div>
 
-      <div class="team-card recruiting">
-        <div class="avatar placeholder">+</div>
-        <h3>Technical Lead</h3>
-        <p class="role">Actively recruiting</p>
-      </div>
-
-      <div class="team-card recruiting">
-        <div class="avatar placeholder">+</div>
-        <h3>Business Lead</h3>
-        <p class="role">Actively recruiting</p>
-      </div>
-    </section>
-
-    <section class="card join">
-      <h2>Want to join us?</h2>
-      <p>Please reach out — we’d love to talk.</p>
-      <a href="contact.html" class="btn">Get in touch</a>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
-    <p>© 2026 SegraSight</p>
+    <div class="footer-inner">
+      <span class="footer-brand">SegraSight</span>
+      <p>© 2026 SegraSight. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 120);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
