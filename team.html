@@ -124,10 +124,26 @@
       margin-bottom: 2rem;
     }
     .team-row.founders {
-      grid-template-columns: repeat(2, 280px);
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 65%;
     }
     .team-row.rest {
       grid-template-columns: repeat(3, 280px);
+    }
+    .team-row.founders .team-card {
+      padding: 3rem 2.5rem;
+    }
+    .team-row.founders .avatar {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 1.75rem;
+    }
+    .team-row.founders .team-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+    .team-row.founders .team-card .role {
+      font-size: 0.8rem;
     }
     /* ── TEAM GRID ────────────────────────────── */
     .team-grid {
