@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SegraSight — Intelligent Waste Segregation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,9 +17,9 @@
       --cyan:     #00d2c8;
       --cyan-dim: rgba(0,210,200,0.08);
       --cyan-mid: rgba(0,210,200,0.25);
-      --text:     #d8e8ef;
-      --muted:    #5f7f93;
-      --white:    #ffffff;
+      --text:     #c8dde8;
+      --muted:    #8aafc4;
+      --white:    #f0f8ff;
     }
 
     html { scroll-behavior: smooth; }
@@ -27,8 +27,8 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -46,7 +46,7 @@
       padding: 1.1rem 2rem;
     }
     .nav-brand {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-weight: 800; font-size: 1.35rem;
       color: var(--cyan); text-decoration: none;
       letter-spacing: 0.03em;
@@ -105,7 +105,7 @@
     }
 
     .hero-eyebrow {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: 0.75rem; color: var(--cyan);
       letter-spacing: 0.2em; text-transform: uppercase;
       margin-bottom: 1.5rem;
@@ -118,7 +118,7 @@
     }
 
     .hero h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-weight: 800;
       font-size: clamp(3rem, 7vw, 6.5rem);
       line-height: 1.0;
@@ -132,14 +132,14 @@
     .hero-sub {
       font-size: 1.15rem; color: var(--muted);
       max-width: 520px; margin-bottom: 3rem;
-      font-weight: 300; line-height: 1.7;
+      font-weight: 400; line-height: 1.7;
     }
 
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     .btn-primary {
       background: var(--cyan); color: var(--bg);
-      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-family: 'Outfit', sans-serif; font-weight: 700;
       font-size: 0.9rem; letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 0.9rem 2.2rem; border-radius: 3px;
@@ -150,7 +150,7 @@
 
     .btn-ghost {
       border: 1px solid var(--border); color: var(--text);
-      font-family: 'Syne', sans-serif; font-weight: 600;
+      font-family: 'Outfit', sans-serif; font-weight: 600;
       font-size: 0.9rem; letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 0.9rem 2.2rem; border-radius: 3px;
@@ -177,7 +177,7 @@
     }
     .stat:last-child { border-right: none; }
     .stat-num {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Outfit', sans-serif; font-weight: 800;
       font-size: 2.6rem; color: var(--cyan);
       line-height: 1;
     }
@@ -185,7 +185,7 @@
       font-size: 0.8rem; color: var(--muted);
       text-transform: uppercase; letter-spacing: 0.12em;
       margin-top: 0.5rem;
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
     }
 
     /* ── SECTION ──────────────────────────────── */
@@ -197,7 +197,7 @@
     }
 
     .section-label {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: 0.72rem; color: var(--cyan);
       letter-spacing: 0.2em; text-transform: uppercase;
       margin-bottom: 1rem;
@@ -210,7 +210,7 @@
     }
 
     h2.section-title {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Outfit', sans-serif; font-weight: 800;
       font-size: clamp(2rem, 4vw, 3rem);
       color: var(--white); line-height: 1.1;
       margin-bottom: 1.5rem;
@@ -233,12 +233,12 @@
       background: var(--bg2);
     }
     .problem-cell .num {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: 0.7rem; color: var(--cyan);
       letter-spacing: 0.15em; margin-bottom: 1rem;
     }
     .problem-cell h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-family: 'Outfit', sans-serif; font-weight: 700;
       font-size: 1.1rem; color: var(--white);
       margin-bottom: 0.75rem;
     }
@@ -264,13 +264,13 @@
     .step:not(:first-child) { padding-left: 2.5rem; }
 
     .step-num {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: 3.5rem; font-weight: 500;
       color: var(--cyan-mid);
       line-height: 1; margin-bottom: 1.5rem;
     }
     .step h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-family: 'Outfit', sans-serif; font-weight: 700;
       font-size: 1.1rem; color: var(--white);
       margin-bottom: 0.75rem;
     }
@@ -310,7 +310,7 @@
       font-size: 1.1rem;
     }
     .service-card h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-family: 'Outfit', sans-serif; font-weight: 700;
       font-size: 1.15rem; color: var(--white);
       margin-bottom: 0.75rem;
     }
@@ -326,12 +326,12 @@
       align-items: center;
     }
     .mission-left .big-m {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Outfit', sans-serif; font-weight: 800;
       font-size: 10rem; color: var(--bg3); line-height: 1;
       user-select: none; letter-spacing: -0.04em;
     }
     .mission-right blockquote {
-      font-family: 'Syne', sans-serif; font-weight: 600;
+      font-family: 'Outfit', sans-serif; font-weight: 600;
       font-size: clamp(1.4rem, 2.5vw, 2rem);
       color: var(--white); line-height: 1.4;
       border-left: 3px solid var(--cyan);
@@ -354,7 +354,7 @@
       gap: 4rem; flex-wrap: wrap;
     }
     .join-inner h2 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Outfit', sans-serif; font-weight: 800;
       font-size: clamp(1.8rem, 3vw, 2.5rem);
       color: var(--white); line-height: 1.2; max-width: 420px;
     }
@@ -374,11 +374,11 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .footer-brand {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Outfit', sans-serif; font-weight: 800;
       font-size: 1rem; color: var(--cyan);
     }
     .footer p {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: 0.72rem; color: var(--muted);
     }
 
