@@ -117,6 +117,18 @@
       color: var(--text); font-size: 1rem; max-width: 480px;
     }
 
+
+    .team-row {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .team-row.founders {
+      grid-template-columns: repeat(2, 280px);
+    }
+    .team-row.rest {
+      grid-template-columns: repeat(3, 280px);
+    }
     /* ── TEAM GRID ────────────────────────────── */
     .team-grid {
       display: grid;
@@ -251,7 +263,8 @@
         <p>We're building SegraSight at the intersection of healthcare operations, safety, and applied AI.</p>
       </div>
 
-      <div class="team-grid reveal">
+      <!-- Founders row -->
+      <div class="team-row founders reveal">
         <div class="team-card">
           <img src="assets/sejal.jpeg" alt="Sejal Kotian" class="avatar" />
           <h3>Sejal Kotian</h3>
@@ -262,6 +275,11 @@
           <h3>Amogh Mohanty</h3>
           <p class="role">Co-founder</p>
         </div>
+      </div>
+
+      <!-- Open roles row -->
+      <div class="section-label reveal" style="margin: 3rem 0 1.5rem;">Open Roles</div>
+      <div class="team-row rest reveal">
         <div class="team-card recruiting">
           <div class="avatar-placeholder">+</div>
           <h3>Clinical Advisor</h3>
